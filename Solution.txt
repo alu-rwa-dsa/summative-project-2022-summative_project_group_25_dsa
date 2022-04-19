@@ -1,17 +1,14 @@
 ﻿What does our phone book bring to the table?
 
 
-  There are many phone books out there and so many versions will be released in the near future,
-  but here are some things that we believe make our phone book stand out. Our phone book is user
-  friendly which means our older and younger clients can pick up how to use it quickly and our
-  working class who are already familiar with how a phone book works, won’t spend so much time adding
-  or searching for numbers in the system. The phone book lets you put in the full name and number you 
-  want to save into the system, allows you to delete it when you no longer want or need the number, 
-  it also allows you to cancel your contacts. Moreover, it allows you to update or edit any number
-  you have saved in the system. Additionally, it lets you see all the details of what you’ve saved 
-  into the system using the load button. Our phone book is made user friendly by guiding the user
-  with pop up message boxes that give instructions on what to do and what you may have done wrong 
-  plus how to fix it. 
+  There are many phone books out there and so many versions will be released in the near future, but here are some things that we believe make our phone book stand out.
+Our phone book is user-friendly which means our older and younger clients can pick up how to use it quickly and our working class who are already familiar with how a
+phone book works, won’t spend so much time adding or searching for numbers in the system. Because the app opens up in a window it’s not as time-consuming and is more
+effective than working with a phone that uses the button system. Basically, our phone book modifies the goodness of an eh phone. Alongside its benefits to the 
+community, the phone book lets you put in the full name and number you want to save into the system, allows you to delete it when you no longer want or need the 
+number, it also allows you to cancel your contacts. Moreover, it allows you to update or edit any number you have saved in the system. Additionally, it lets you see
+all the details of what you’ve saved into the system using the load button. Our phone book is made user-friendly by guiding the user with pop-up message boxes that
+give instructions on what to do and what you may have done wrong plus how to fix it. 
 
 
 Who are the beneficiaries of this app?
