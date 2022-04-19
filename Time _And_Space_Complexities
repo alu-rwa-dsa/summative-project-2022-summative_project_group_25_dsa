@@ -1,0 +1,205 @@
+
+
+       TIME AND SPACE COMPLEXITIES
+
+
+# Function that contain file where user inputs are contains.
+def Read_CSVFile():
+    # create global variable header which allow it to be use anywhere in a code.
+    global header
+    # Files that store user input data.
+    with open('Phone_Contacts.csv') as csvfile:
+        # Read data in a file which are in a separate data streams.
+        csv_reader = csv.reader(csvfile ,delimiter=',')
+        header = next(csv_reader)
+        # Check row data whether they are in a file header.
+        for row in csv_reader:
+            # Add contacts to contact list.
+            contactlist .append(row)
+    # To return back the selected contact.
+    set_select()
+    # print the contact list requested.
+    print(contactlist )
+
+The time complexity would be O(n) since it will check for whether contact is added to the contact list.
+And if it's possible it will be able to return the contact added in the contact list.
+So it will be linear complexity.
+
+
+
+# Function that handle a file where input of the user are contain.
+def Write_In_CSVFile(phonelist):
+    try:
+        # File that store contact data
+        with open('Phone_Contacts.csv' ,'w' ,newline='') as csv_file:
+            # To write in a file
+            write = csv.writer(csv_file ,delimiter=',')
+            write.writerow(header)
+            # check row in a contact list of the user input
+            for row in phonelist:
+                # write in a row part.
+                write.writerow(row)
+    except PermissionError:
+        print("Please chose within the list of contact.")
+
+
+
+The time complexity would be O(n) since it will check for whether contact is added to the contact list.
+And if it's not possible than it will be able to return the error. So it will be linear complexity.
+
+
+
+
+# Function that deal with the selection of the name in a stack.
+def Select_options():
+    try:
+        # Determine the length of the selected option
+        print("hello" ,len(select.curselection()))
+        # check if the selected element is equal to zero
+        if len(select.curselection() )==0:
+            # Display error in a message box in case a user hasn't select the name.
+            messagebox.showerror("Error", "Please Select the Name")
+        else:
+            # Return the selected part if the first one doesn't work
+            return int(select.curselection()[0])
+    except ValueError:
+        print("select the proper contact details")
+
+
+The time complexity for the "if condition" is O(1) because it only to see if the contact is selected the
+ operation will be effective  and if not than the error will be throw out. So it does not need loop thought out
+ the code but it will be once if the condition id=s not met.
+so it would be constant time.
+
+
+
+# Function to deal for adding more data into an array of the contacts.
+def Add_More_Details():
+    try:
+        # Add on the details of the contact list.
+        if E_name.get( )!="" and E_last_name.get( )!="" and E_contact.get( )!="":
+            # Add contacts details to array of the contact list.
+            contactlist.append([E_name.get( ) +'  ' +E_last_name.get() ,E_contact.get()])
+            # Print contact inserted in a list by the user.
+            print(contactlist)
+            # Allow user to write to a contact list file.
+            Write_In_CSVFile(contactlist)
+            # To select the option of choice
+            set_select()
+            # Redo the data inserted.
+            Cancel()
+            # Show message box for confirming whether the new added contact is added.
+            messagebox.showinfo("Confermation", "Succesfully Add New Contact")
+        else:
+            # Show an error message if the first option is not satisfied.
+            messagebox.showerror("Error", "Please fill the information")
+    except TypeError:
+        print("please put the correct contact details.")
+
+
+The time complexity for the "if condition" is O(1) since the contact information would only be Added once
+the contact which need to be Added is selected. So the space occupied by the algorithm wouldn't be much, since
+it only initialized what information need to be added in the program
+so it would be constant time.
+
+
+
+
+# Function that handling updating contact.
+def Contacts_Updated():
+    try:
+        # Update the details of the contact list.
+        if E_name.get() and E_last_name.get() and E_contact.get():
+            # Select the the contact which need to be updated from contact list.
+            contactlist[Select_options()] = [ E_name.get( ) +'  ' +E_last_name.get(), E_contact.get()]
+            # Insert the new contact to the contact list.
+            Write_In_CSVFile(contactlist)
+            # Show the updated new contact in the message box.
+            messagebox.showinfo("Confirmation", "Successfully Update Contact")
+            # Option to cancel the chosen contact details.
+            Cancel()
+            # Select the contact that need to be updated.
+            set_select()
+            # check if the user didn't elect anything contact from the contact list to update.
+        elif not(E_name.get()) and not(E_last_name.get()) and not(E_contact.get()) and not(len(select.curselection() )==0):
+            # Prompt the error.
+            messagebox.showerror("Error", "Please fill the information")
+        else:
+            # Evaluate if no contact is selected.
+            if len(select.curselection() )==0:
+                # Tell the user to select the contact from the contact list.
+                messagebox.showerror("Error", "Please Select the Name and \n press Load button")
+            else:
+                # To return the details of the contact to the screen
+                message1 = """To Load the all information of \n selected row press Load button\n."""
+                # Show the error that maybe encounter in the process.
+                messagebox.showerror("Error", message1)
+    except ValueError:
+        print("select the proper contact details to update")
+
+
+if E_name.get() and E_last_name.get() and E_contact.get(): ............... O(1)
+if len(select.curselection() )==0: ........................................0(1)
+
+DROPPED THE CONSTANT
+
+The time complexity for the "if condition" is O(1) since the contact information would only be updated once
+the contact which need to be updated is selected. So the space occupied by the algorithm wouldn't be much.
+So it's constant time
+
+
+
+
+# Function that would handle the delete part in the program.
+def Delete():
+    try:
+        # Evaluate if none of the contact is selected.
+        if len(select.curselection() )!=0:
+            # Asked the user to confirm whether the selected option to delete would be the best choice.
+            result =messagebox.askyesno('Confirmation' ,'You Want to Delete Contact  Which you selected')
+            # Evaluate the if the choice of the selected option is the best choice.
+            if result==True:
+                # Delete the selected contact from the contact list.
+                del contactlist[Select_options()]
+                # Update the contact list.
+                Write_In_CSVFile(contactlist)
+                # select the contact that to be selected.
+                set_select()
+        else:
+            # Tell the user to chose the contact if it doesn't do so.
+            messagebox.showerror("Error", 'Please select the Contact')
+    except TypeError:
+        print("Please select the right contact to delete.")
+
+
+
+The time complexity for the "if conditions" is O(1) since the contact information would only be deleted once
+the contact which need to be deleted is selected. And if there is no contact selected than it will throw an error
+and if possible than it will do the operation to the program by deleting the contact selected.
+so it's constant time
+
+
+
+# Function that monitor the user input into the contact list.
+def set_select():
+    try:
+        # Arrange the inserted contacts in ascending order base on the how the were inserted/recorded.
+        contactlist.sort(key=lambda record: record[1])
+        # To select the contact to be deleted.
+        select.delete(0, END)
+        i=0
+        # Check name and phone in a contact list.
+        for name, phone in contactlist:
+            # iterate the number and name.
+            i+=1
+            # Insert the names and number to the contact list.
+            select.insert(END, f"{i}  |    {name}   |   {phone}")
+    except IndexError:
+        print("please select the number within the program cycle to avoid this the list index out of range")
+
+
+The time complexity for the "if condition" is O(1) since the contact information would only be selected either to be
+deleted, updated, displayed and cancel once the contact is selected than operation thar need to be focus is affected.
+This is constant time.
+
+
